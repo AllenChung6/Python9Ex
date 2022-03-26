@@ -4,8 +4,6 @@ import json
 
 # Part A
 def read_json(file_path):
-    file_path = os.path.abspath('mario.json')
-
     # opening JSON file
     f = open(file_path)
 
@@ -16,20 +14,15 @@ def read_json(file_path):
 
 # Part B
 def read_all_json_files():
-    file_path = os.path.abspath('mario.json')
-    file_path1 = os.path.abspath('link.json')
-    file_path2 = os.path.abspath('superman.json')
-    file_path3 = os.path.abspath('thor.json')
-    file_path4 = os.path.abspath('goku.json')
-    file_path5 = os.path.abspath('krillin.json')
+    file_path = '/Users/allenc/PyCharmProjects/Python9Ex/data/super_smash_bros/mario.json'
+    file_path1 = '/Users/allenc/PyCharmProjects/Python9Ex/data/super_smash_bros/link.json'
 
     obj1 = read_json(file_path)
     obj2 = read_json(file_path1)
-    obj3 = read_json(file_path2)
-    obj4 = read_json(file_path3)
-    obj5 = read_json(file_path4)
-    obj6 = read_json(file_path5)
 
-    list_of_files = [obj1, obj2, obj3, obj4, obj5, obj6]
+    list_of_files = [obj1, obj2]
     return list_of_files
+
+
+print(read_all_json_files())
 
