@@ -1,28 +1,33 @@
 import os
 import json
+import pickle
 
 
 # Part A
-def read_json(file_path):
+def read_json(directory, file_name):
     # opening JSON file
-    f = open(file_path)
-
-    # returns JSON object as dict
-    data = json.load(f)
+    with open(os.path.join(directory, file_name), 'r') as file:
+        # returns JSON object as dict
+        data = json.load(file)
     return data
 
 
 # Part B
-def read_all_json_files():
-    file_path = '/Users/allenc/PyCharmProjects/Python9Ex/data/super_smash_bros/mario.json'
-    file_path1 = '/Users/allenc/PyCharmProjects/Python9Ex/data/super_smash_bros/link.json'
+def read_all_json_files(directory, file_name):
+    # file_path1 = '/Users/allenc/PyCharmProjects/Python9Ex/data/super_smash_bros/link.json'
+    list_of_files = []
+    for file_name in os.listdir(directory):
+        read_json(directory, file_name)
+        data = read_json(directory, file_name)
+        list_of_files.append(data)
 
-    obj1 = read_json(file_path)
-    obj2 = read_json(file_path1)
-
-    list_of_files = [obj1, obj2]
     return list_of_files
 
 
-print(read_all_json_files())
+# Part C
+def write_pickle(directory):
+    pickle_file = open('super_smash_characters.pickle', 'wb')
+    pickle.dump(directory, pickle_file)
 
+
+write_pickle('/Users/allenc/PyCharmProjects/Python9Ex/data/')
