@@ -31,3 +31,5 @@ def write_pickle(directory):
 
 
 write_pickle('/Users/allenc/PyCharmProjects/Python9Ex/data/')
+print(read_all_json_files('/Users/allenc/PyCharmProjects/Python9Ex/data/super_smash_bros', 'link.json'))
+
